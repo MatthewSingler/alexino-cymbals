@@ -7,8 +7,9 @@ import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-  <BrowserRouter />
+  <BrowserRouter>
     <Alexino />
+  </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
