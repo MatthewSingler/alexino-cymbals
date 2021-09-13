@@ -5,11 +5,9 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 
-import reportWebVitals from './reportWebVitals';
-
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+  <BrowserRouter />
     <Alexino />
   </React.StrictMode>,
   document.getElementById('root')
