@@ -1,6 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import { Cymbals } from "./Cymbals/Cymbals"
+import { Cymbal } from "./Cymbals/Cymbals"
+import { EachCymbal } from "./Cymbals/SingleCymbal"
 import { Customers } from "./Users/Users"
 import { Orders } from "./Orders/Orders"
 
@@ -11,10 +12,10 @@ export const ApplicationViews = () => {
     return (
         <>
             <Route exact path="/cymbals">
-                <Cymbals />
+                <Cymbal />
             </Route>
             <Route exact path="/cymbals/:cymbalId(\d+)">
-                <Cymbals />
+                <EachCymbal />
             </Route>
             <Route path="/users">
                 <Customers />

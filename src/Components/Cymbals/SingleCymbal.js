@@ -1,7 +1,7 @@
-import React, { useState useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { useParams } from "react-router"
 
-export const cymbal = () => {
+export const EachCymbal = () => {
     const [ cymbal, selectCymbal ] = useState({})
     const { cymbalId } = useParams()
 

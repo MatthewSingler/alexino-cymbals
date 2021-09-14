@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router"
-
-export const Cymbals = () => {
+import { Link } from "react-router-dom"
+export const Cymbal = () => {
     const history = useHistory()
     const [cymbals, setCymbals] = useState([])
 
@@ -25,9 +25,8 @@ export const Cymbals = () => {
                 cymbals.map(
                     (cymbal) => {
                         return (
-                            <div key={`cymbal--${cymbal.id}`}>
-                                {cymbal.name}
-                            <link to={`/cymbals/${cymbal.id}`}>{cymbal.name}</link>
+                            <div key={`cymbals--${cymbal.id}`}>{cymbal.name}
+                            <Link to={`/cymbals/${cymbal.id}`}>{cymbal.name}</Link>
                         </div>
                         )}
                 )
