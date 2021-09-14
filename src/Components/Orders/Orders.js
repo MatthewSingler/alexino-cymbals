@@ -6,13 +6,11 @@ export const Orders = () => {
 
     const history = useHistory()
 
+
     useEffect(
         () => {
-            fetch("http://localhost:8088/orders", fetchOption)
-                .then(() => {
-                    history.push("/orders")
-                }
-                )
+            fetch("http://localhost:8088/orders")
+                .then(response => response.json())
                 .then((ordersArray) => {
                     setOrders(ordersArray)
                 })
@@ -28,13 +26,6 @@ export const Orders = () => {
             })
         orderCart()
     }
-    const fetchOption = {
-        method: "POST",
-        headers: {
-            "content-type": "application/json"
-        },
-        body: JSON.stringify(newOrder)
-    }
 
     useEffect(
         () => {
@@ -43,20 +34,6 @@ export const Orders = () => {
         }, [orders]
 
     )
-        const newOrder = { ...order }
-        newOrder[idToModify] = newValue
-        setOrders(newOrder)
-    }
-
-    const submitPurchase = () => {
-        const newPurchase = {
-            orderId: parseInt(localStorage.getItem()),
-            cymbalId: parseInt(localStorage.getItem())
-        }
-        
-            
-    }
-
 
     return (
         <>

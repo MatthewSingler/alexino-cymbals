@@ -6,9 +6,6 @@ export const EachCymbal = () => {
     const [ cymbal, selectCymbal ] = useState({})
     const { cymbalId } = useParams()
     const history = useHistory()
-    
-    const submitPurchase = (event) => {
-        event.preventDefault()
 
     useEffect(
         () => {
