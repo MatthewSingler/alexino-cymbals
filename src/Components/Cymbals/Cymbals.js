@@ -18,15 +18,13 @@ export const Cymbal = () => {
    
     return (
         <>
-            <div>
-                <button onClick={() => history.push("/cymbals/order")}>Purchase</button>
-            </div>
+            
             {
                 cymbals.map(
                     (cymbal) => {
                         return (
                             <div key={`cymbals--${cymbal.id}`}>
-                            <Link to={`/cymbals/${cymbal.id}`}>{cymbal.name}</Link>
+                                <Link to={`/cymbals/${cymbal.id}`}>{cymbal.name}, {cymbal.size}</Link>
                         </div>
                         )}
                 )

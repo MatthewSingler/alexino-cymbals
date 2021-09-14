@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router"
+import { useHistory } from "react-router"
 
 export const EachCymbal = () => {
     const [ cymbal, selectCymbal ] = useState({})
     const { cymbalId } = useParams()
+    const history = useHistory()
 
     useEffect(
         () => {
@@ -25,7 +27,9 @@ export const EachCymbal = () => {
                 <div className="cymbal__size">{cymbal.size}</div>
                 <div className="cymbal__weight">{cymbal.weight}</div>
                 <div className="cymbal__price">${cymbal.price} dollars</div>
-                
+                <div>
+                    <button onClick={() => history.push("/cymbals/order")}>Purchase</button>
+                </div>
             </section>
             
         </>
