@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router"
-
-export const Cymbals = () => {
+import { Link } from "react-router-dom"
+export const Cymbal = () => {
+    const history = useHistory()
     const [cymbals, setCymbals] = useState([])
 
     useEffect(
@@ -14,20 +15,20 @@ export const Cymbals = () => {
         },
         []
     )
-    /*useEffect(
-        () => {
-            const allCymbals = cymbals.map(cymbal => cymbal.id)
-                setCymbals(allCymbals.join(" , "))
-        }, [cymbals]
-    )*/
-    
+   
     return (
         <>
+            <div>
+                <button onClick={() => history.push("/cymbals/order")}>Purchase</button>
+            </div>
             {
                 cymbals.map(
-                    (cymbalObj) => {
-                        return <div key={`cymbal--${cymbalObj.id}`}>{cymbalObj.name}</div>
-                    }
+                    (cymbal) => {
+                        return (
+                            <div key={`cymbals--${cymbal.id}`}>
+                            <Link to={`/cymbals/${cymbal.id}`}>{cymbal.name}</Link>
+                        </div>
+                        )}
                 )
             }
         </>
