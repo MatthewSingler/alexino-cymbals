@@ -10,7 +10,10 @@ import { Orders } from "./Orders/Orders"
 export const ApplicationViews = () => {
     return (
         <>
-            <Route path="/cymbals">
+            <Route exact path="/cymbals">
+                <Cymbals />
+            </Route>
+            <Route exact path="/cymbals/:cymbalId(\d+)">
                 <Cymbals />
             </Route>
             <Route path="/users">
