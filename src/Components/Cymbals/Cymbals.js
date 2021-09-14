@@ -14,12 +14,12 @@ export const Cymbals = () => {
         },
         []
     )
-    useEffect(
+    /*useEffect(
         () => {
             const allCymbals = cymbals.map(cymbal => cymbal.id)
                 setCymbals(allCymbals.join(" , "))
         }, [cymbals]
-    )
+    )*/
     
     return (
         <>
