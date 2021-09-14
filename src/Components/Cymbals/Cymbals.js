@@ -25,7 +25,7 @@ export const Cymbal = () => {
                 cymbals.map(
                     (cymbal) => {
                         return (
-                            <div key={`cymbals--${cymbal.id}`}>{cymbal.name}
+                            <div key={`cymbals--${cymbal.id}`}>
                             <Link to={`/cymbals/${cymbal.id}`}>{cymbal.name}</Link>
                         </div>
                         )}
