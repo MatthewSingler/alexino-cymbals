@@ -17,6 +17,23 @@ export const EachCymbal = () => {
         },
         [cymbalId]
     )
+    const purchaseCymbal = () => {
+        const purchasedObj = {
+            cymbalId: parseInt(cymbalId),
+            userId: parseInt(localStorage.getItem("alexino_user"))
+        }
+        const fetchOptions = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(purchasedObj)
+        }
+        return fetch("http://localhost:8088/orders", fetchOptions)
+            .then(() => {
+                history.push("/cymbals")
+            })
+    }
+    
+    
 
     return (
         <>
@@ -28,7 +45,7 @@ export const EachCymbal = () => {
                 <div className="cymbal__weight">{cymbal.weight}</div>
                 <div className="cymbal__price">${cymbal.price} dollars</div>
                 <div>
-                    <button onClick={() => history.push("/cymbals/order")}>Purchase</button>
+                    <button onClick={() => purchaseCymbal()}>Purchase</button>
                 </div>
             </section>
             

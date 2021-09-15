@@ -27,13 +27,15 @@ export const Orders = () => {
         orderCart()
     }
 
-    useEffect(
+    /*useEffect(
         () => {
-            const allOrders = orders.map(order => order.id)
-            setOrders(allOrders.join(" , "))
+            const currentOrder = orders.map(order => order.id)
+            setOrders(currentOrder.join(" , "))
         }, [orders]
 
-    )
+    )*/
+
+    
 
     return (
         <>
