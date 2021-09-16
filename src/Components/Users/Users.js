@@ -4,33 +4,28 @@ import { useHistory } from "react-router"
 
 export const Customers = () => {
     const [users, setUsers] = useState([])
-    const currentUser = parseInt(localStorage.getItem("alexino_user"))
-
-    const currentUserInformation = () => {
-        const individualUserInfo = {
-            userId: currentUser,
-            userName: currentUser.name
-        }
-        fetch(`http://localhost:8088/users/${currentUser}`)
-            .then(response => response.json())
-            .then((info) => {
-                setUsers(info)
-            })
-    }
+const currentUser = parseInt(localStorage.getItem("alexino_user"))
     useEffect(
         () => {
-            currentUserInformation()
+            fetch("http://localhost:8088/users")
+                .then(response => response.json())
+                .then((usersArray) => {
+                    setUsers(usersArray)
+                })
         },
-        [users]
+        []
     )
 
     return (
         <>
-            
             {
                 users.map(
                     (userObj) => {
-                        return <div key={`customer--${userObj.id}`}>Make some noise {userObj.name}</div>
+                        if (userObj.id === currentUser) {
+                            return <div key={`customer--${userObj.id}`}>Welcome {userObj.name}</div>
+                            
+                        }
+
                     }
                 )
             }
