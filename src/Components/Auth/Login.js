@@ -20,7 +20,7 @@ export const Login = () => {
             .then(exists => {
                 if (exists) {
                     localStorage.setItem("alexino_user", exists.id)
-                    history.push("/")
+                    history.push("/cymbals")
                 } else {
                     existDialog.current.showModal()
                 }
