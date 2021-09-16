@@ -4,7 +4,7 @@ import React from "react"
 import { Login } from "./Auth/Login"
 import { Register } from "./Auth/Register"
 import { NavBar } from "./Nav/NavBar"
-
+import { Customers } from "./Users/Users"
 
 export const Alexino = () => {
     return (
@@ -15,6 +15,7 @@ export const Alexino = () => {
                         return (
                             <>
                                 <NavBar />
+                                <Customers />
                                 <h1>Alexino Cymbals</h1>
                                 <ApplicationViews />
                             </>
