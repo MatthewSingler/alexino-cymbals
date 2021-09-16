@@ -29,7 +29,7 @@ export const EachCymbal = () => {
         }
         return fetch("http://localhost:8088/orders", fetchOptions)
             .then(() => {
-                history.push("/cymbals")
+                history.push("/orders")
             })
     }
     
