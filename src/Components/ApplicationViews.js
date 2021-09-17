@@ -18,7 +18,7 @@ export const ApplicationViews = () => {
                 <EachCymbal />
         
             </Route>
-            <Route path="/orders">
+            <Route exact path="/orders">
                 <Orders />
             </Route>
         </>
