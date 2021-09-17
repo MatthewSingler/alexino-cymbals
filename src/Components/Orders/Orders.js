@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react"
-import { useHistory, useParams } from "react-router"
+import { useHistory } from "react-router"
 
 export const Orders = () => {
     const [orders, setOrders] = useState([])  //setting the initial value of my state of orders
@@ -30,11 +30,13 @@ export const Orders = () => {
             })
                 .then(allUserOrders)  //once the fucntion is called to delete a cymbal this allUserOrders runs and is updating the state of our application b/c it is located inside of our useEffect.
         }
+    
   
         return (
             <>
                 <div>
                     <h3>Current Order Includes {`${orders.length}`} Cymbals</h3>
+
                     {
                         orders.map(  //we are iterating through all of the orders for the current user and displaying the properties that are on that object below using .notation
                             (orderObj) => {
@@ -49,7 +51,10 @@ export const Orders = () => {
                             }
                         )
                     }
+                    
                 </div>
+
+                <button className="return" onClick={() => history.push("/cymbals")}>Keep Shopping</button>
             </>
         )  //our onClick function above is calling the deleteCymbal fucntion and pasing the current orderObj.id as the arguement. This is what gets passed to the deleteCymbal as a parameter.
     }
