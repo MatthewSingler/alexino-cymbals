@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router"
 import { useHistory } from "react-router"
-
+import InstagramEmbed from 'react-instagram-embed';
 
 export const EachCymbal = () => {
     const [ cymbal, selectCymbal ] = useState({})
@@ -41,7 +41,19 @@ export const EachCymbal = () => {
             <h2>Specs</h2>
             <section className="cymbal">
                 <h3 className="cymbal__name">{cymbal.name}</h3>
-                {/*url to instagram for cymbal video*/}
+                
+                
+                <div className="cymbal__video">
+                    <iframe src={cymbal.url}
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen>
+                    </iframe>
+                    
+
+                </div>
+
                 <div className="cymbal__cymbalTypeId">{cymbal.cymbalType?.type}</div>
                 <div className="cymbal__size">{cymbal.size}</div>
                 <div className="cymbal__weight">{cymbal.weight}</div>
@@ -50,6 +62,7 @@ export const EachCymbal = () => {
                     <button onClick={() => purchaseCymbal()}>Purchase</button>
                 </div>
             </section>
+            <button className="return" onClick={() => history.push("/cymbals")}>Check Out More Cymbals</button>
             
         </>
     )
