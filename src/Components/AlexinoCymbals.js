@@ -5,6 +5,7 @@ import { Login } from "./Auth/Login"
 import { Register } from "./Auth/Register"
 import { NavBar } from "./Nav/NavBar"
 import { Customers } from "./Users/Users"
+import "./AlexinoCymbals.css"
 
 export const Alexino = () => {
     return (
@@ -14,9 +15,9 @@ export const Alexino = () => {
                     if (localStorage.getItem("alexino_user")) {
                         return (
                             <>
-                                <NavBar />
                                 <Customers />
-                                <h1>Alexino Cymbals</h1>
+                                <NavBar />
+                                <h1 className="heading--title">Alexino Cymbals</h1>
                                 <ApplicationViews />
                             </>
                         )

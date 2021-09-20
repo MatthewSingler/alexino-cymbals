@@ -1,8 +1,16 @@
 .main--display {
-    background-color: #ced4da;
+    background-color: rgb(55, 50, 50);
+
 }
 
 .cymbals--display {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+    font-size: 23px;
+    color: #ced4da;
+}
+
+.cymbals__links{
+    color: #ced4da;
 }
