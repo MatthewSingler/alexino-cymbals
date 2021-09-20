@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router"
+import "./Orders.css"
 
 export const Orders = () => {
     const [orders, setOrders] = useState([])  //setting the initial value of my state of orders
@@ -35,16 +36,16 @@ export const Orders = () => {
         return (
             <>
                 <div>
-                    <h3>Current Order Includes {`${orders.length}`} Cymbals</h3>
+                    <h3 className="current">Current Order Includes {`${orders.length}`} Cymbal(s)</h3>
 
                     {
                         orders.map(  //we are iterating through all of the orders for the current user and displaying the properties that are on that object below using .notation
                             (orderObj) => {
                                 return (
                                     <>
-                                        <div key={`order--${orderObj.id}`}>{orderObj.cymbal?.name}, {orderObj.cymbal?.size}, ${orderObj.cymbal.price}</div>
+                                        <div className="current__cart"key={`order--${orderObj.id}`}>{orderObj.cymbal?.name}, {orderObj.cymbal?.size}, ${orderObj.cymbal.price}</div>
                                         <div>
-                                            <button onClick={() => deleteCymbal(orderObj.id)}>Delete</button>
+                                            <button className="delete__button" onClick={() => deleteCymbal(orderObj.id)}>Delete</button>
                                         </div>
                                     </>
                                 )
