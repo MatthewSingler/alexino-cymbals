@@ -50,7 +50,7 @@ fieldset {
     z-index: 1;
     min-height: 25rem;
     min-width: 45rem;
-    background-color: hsla(0,0%,100%,0.40);
+    background-color: whitesmoke;
     background-blend-mode: overlay;
     background-repeat: no-repeat;
 }
@@ -64,4 +64,6 @@ fieldset {
     min-width: 15rem;
     min-height: 5rem;
 }
-
+.link--register {
+color: #ced4da;
+}

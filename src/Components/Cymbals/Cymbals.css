@@ -30,6 +30,8 @@ color: #ced4da;
     border: solid rgb(244, 185, 97);
     border-width: 2px;
     padding: 10px 10px;
+    margin-top: 19px;
+    font-size: 20px;
     
 }
 .purchase {
@@ -37,6 +39,7 @@ color: #ced4da;
     border-width: 2px;
     padding: 10px 10px;
     margin-bottom: 8px;
+    font-size: 15px;
 }
 
 .specifics {
