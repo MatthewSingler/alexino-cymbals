@@ -3,8 +3,8 @@
     align-items: flex-end;
     flex-direction: column;
     gap: 10px;
-    
-    font-size: 20px;
+    padding-right: 3rem;
+    font-size: 25px;
 }
 
 .navbar__item {
@@ -13,10 +13,11 @@
 }
 
 .user--message{
-    font-size: 25px;
+    font-size: 30px;
     display: flex;
     justify-content: flex-end;
     color: #ced4da;
+    padding-right: 3rem;
 }
 .navbar__link {
     color: #ced4da;

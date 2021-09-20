@@ -1,0 +1,16 @@
+.current {
+    color: #ced4da;
+    font-size: 30px;
+}
+.current__cart{
+    color: #ced4da;
+    font-size: 25px;
+    margin-bottom: 5px;
+    }
+.delete__button{
+    border: solid rgb(244, 185, 97);
+    border-width: 2px;
+    padding: 10px 10px;
+    margin-bottom: 8px;
+    
+}

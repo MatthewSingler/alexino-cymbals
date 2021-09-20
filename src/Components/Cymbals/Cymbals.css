@@ -1,6 +1,6 @@
 .main--display {
     background-color: rgb(55, 50, 50);
-
+    margin-bottom: 2rem;
 }
 
 .cymbals--display {
@@ -11,6 +11,51 @@
     color: #ced4da;
 }
 
-.cymbals__links{
+.cymbals__links {
     color: #ced4da;
+}
+
+.cymbal__info {
+color: #ced4da;
+}
+
+.cymbal {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.return {
+    border: solid rgb(244, 185, 97);
+    border-width: 2px;
+    padding: 10px 10px;
+    
+}
+.purchase {
+    border: solid rgb(244, 185, 97);
+    border-width: 2px;
+    padding: 10px 10px;
+    margin-bottom: 8px;
+}
+
+.specifics {
+    font-size: 25px;
+    margin-top: 5px;
+    margin-bottom: 0rem;
+}
+.cymbal__name {
+    font-size: 27px;
+    margin-bottom: 0rem;
+}
+.cymbal__video {
+     position: relative; 
+    top: auto;
+    left: auto;
+    width: auto;
+    height: auto;
+    margin-right: 15%;
+}
+.cymbal__specs {
+    font-size: 21px;
 }
