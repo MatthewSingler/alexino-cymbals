@@ -28,12 +28,12 @@ export const Cymbal = () => {
                     (cymbal) => {
                         return (
                             <div key={`cymbals--${cymbal.id}`}>
-                                <Link to={`/cymbals/${cymbal.id}`}>{cymbal.name}, {cymbal.size}</Link>
+                                <Link className="cymbals__links" to={`/cymbals/${cymbal.id}`}>{cymbal.name}, {cymbal.size}</Link>
                                 </div>
                         )}
                         )
                     }
-            </div>
+                            </div>
         </>
     )
 }

@@ -1,7 +1,10 @@
 .navbar {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: left;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 10px;
+    
+    font-size: 20px;
 }
 
 .navbar__item {
@@ -10,6 +13,11 @@
 }
 
 .user--message{
+    font-size: 25px;
     display: flex;
     justify-content: flex-end;
+    color: #ced4da;
+}
+.navbar__link {
+    color: #ced4da;
 }
