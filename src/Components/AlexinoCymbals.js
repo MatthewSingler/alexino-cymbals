@@ -10,6 +10,7 @@ import "./AlexinoCymbals.css"
 export const Alexino = () => {
     return (
         <>
+           
             <Route
                 render={() => {
                     if (localStorage.getItem("alexino_user")) {
