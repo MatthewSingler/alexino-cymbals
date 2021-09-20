@@ -22,9 +22,13 @@ const currentUser = parseInt(localStorage.getItem("alexino_user"))
                 users.map(
                     (userObj) => {
                         if (userObj.id === currentUser) {
-                            return <div key={`customer--${userObj.id}`}>Welcome {userObj.name}</div>
+                            return (
+                                <div className="user--message">
+                                    <div key={`customer--${userObj.id}`}>Welcome {userObj.name}</div>
+                                </div>
+
                             
-                        }
+                            )}
 
                     }
                 )

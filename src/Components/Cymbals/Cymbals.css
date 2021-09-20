@@ -1,0 +1,8 @@
+.main--display {
+    background-color: #ced4da;
+}
+
+.cymbals--display {
+    display: flex;
+    flex-direction: column;
+}
