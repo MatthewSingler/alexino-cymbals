@@ -53,6 +53,7 @@ fieldset {
     background-color: whitesmoke;
     background-blend-mode: overlay;
     background-repeat: no-repeat;
+    padding: 2rem;
 }
 
 .button--close {
@@ -64,6 +65,28 @@ fieldset {
     min-width: 15rem;
     min-height: 5rem;
 }
-.link--register {
-color: #ced4da;
+.register__link {
+color: whitesmoke;
+font-size: 20px;
+}
+.sign__in {
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    font-size: 16px;
+}
+.email {
+    font-size: 16px;
+}
+.submit__btn {
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    font-size: 16px;
+}
+.existing__btn {
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    font-size: 16px;
 }
