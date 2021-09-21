@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import { useHistory } from "react-router-dom"
 import "./Login.css"
 
+
 export const Register = (props) => {
     const [user, setUser] = useState({})
     const conflictDialog = useRef()
@@ -29,7 +30,7 @@ export const Register = (props) => {
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
                                 localStorage.setItem("alexino_user", createdUser.id)
-                                history.push("/")
+                                history.push("/cymbals")
                             }
                         })
                 }
@@ -44,7 +45,9 @@ export const Register = (props) => {
         copy[evt.target.id] = evt.target.value
         setUser(copy)
     }
-
+    const alreadyUser = () => {
+        history.push("/login")
+    }
 
     return (
         <main style={{ textAlign: "center" }}>
@@ -56,17 +59,20 @@ export const Register = (props) => {
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Please Register for Alexino Cymbals</h1>
                 <fieldset>
-                    <label htmlFor="name"> Full Name </label>
+                    <label htmlFor="name"></label>
                     <input onChange={updateUser}
                         type="text" id="name" className="form-control"
                         placeholder="Enter your name" required autoFocus />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="email"> Email address </label>
+                    <label htmlFor="email"></label>
                     <input onChange={updateUser} type="email" id="email" className="form-control" placeholder="Email address" required />
                 </fieldset>
                 <fieldset>
-                    <button type="submit"> Register </button>
+                    <button className="submit__btn" type="submit"> Register </button>
+                </fieldset>
+                <fieldset>
+                    <button className="existing__btn" onClick={alreadyUser}> Already A User? </button>
                 </fieldset>
             </form>
         </main>
