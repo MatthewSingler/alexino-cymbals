@@ -32,17 +32,17 @@ export const Orders = () => {
                 .then(allUserOrders)  //once the fucntion is called to delete a cymbal this allUserOrders runs and is updating the state of our application b/c it is located inside of our useEffect.
         }
     
-        useEffect(  //This useEffect is an event listener that is running 
+        useEffect(  //This useEffect is an event listener that is running everytime orders is rendering?
         () => {
-            const totalPrice = orders.reduce(  //Storing the total price of our orders in totalPrice. It is getting the total price 
-                (sum, currentOrder) => {
+            const totalPrice = orders.reduce(  //It is getting the total price from our .map below since we are passing the entire orderObj as an arguement.
+                (sum, currentOrder) => {  //passing sum and currentOrder as (parameters)
                     return sum + currentOrder.cymbal.price
                 }
-                , 0
+                , 0  //start at zero and add from there
             )
-          addCymbalsTogether(totalPrice)      
+          addCymbalsTogether(totalPrice)  //calling addCymbalsTogether with totalprice as an arguement. totalprice is storing the orders object
         },
-        [orders]
+        [orders]  //calling orders again
     )
   
         return (
@@ -66,8 +66,8 @@ export const Orders = () => {
                     }
                     
                 </div>
-
                 <button className="return" onClick={() => history.push("/cymbals")}>Keep Shopping</button>
+                <button className="checkout" onClick={() => history.push("/checkout")}>Checkout</button>
             </>
         )  //our onClick function above is calling the deleteCymbal fucntion and pasing the current orderObj.id as the arguement. This is what gets passed to the deleteCymbal as a parameter.
     }
