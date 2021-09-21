@@ -5,12 +5,12 @@ import "./Orders.css"
 
 export const Orders = () => {
     const [orders, setOrders] = useState([])  //setting the initial value of my state of orders
-
+    const [orderCost, addCymbalsTogether] = useState(0) 
     const currentUser = parseInt(localStorage.getItem("alexino_user"))  //had to save the current user to a variable
     
-
-        const history = useHistory()
-        const allUserOrders = () => {  //this function is fetching all the orders for the specific user, whcih we got by invoking our currentUser variable.
+    const history = useHistory()
+        
+    const allUserOrders = () => {  //this function is fetching all the orders for the specific user, whcih we got by invoking our currentUser variable.
             return fetch(`http://localhost:8088/orders?_expand=cymbal&userId=${currentUser}`)
                 .then(response => response.json())
                 .then((ordersArray) => {
@@ -18,7 +18,7 @@ export const Orders = () => {
                 })
         }
 
-        useEffect(  //our useEffect hook is calling the allUserOrders function which contains the orders the user has made, and then our hook is also taking the orderId as an arguement. When OrderId changes this useEffect run. The state has changed?
+        useEffect(  //our useEffect hook is calling the allUserOrders function which contains the orders the user has made. The state has changed?
             () => {
                 allUserOrders()
             },
@@ -32,11 +32,23 @@ export const Orders = () => {
                 .then(allUserOrders)  //once the fucntion is called to delete a cymbal this allUserOrders runs and is updating the state of our application b/c it is located inside of our useEffect.
         }
     
+        useEffect(  //This useEffect is an event listener that is running 
+        () => {
+            const totalPrice = orders.reduce(  //Storing the total price of our orders in totalPrice. It is getting the total price 
+                (sum, currentOrder) => {
+                    return sum + currentOrder.cymbal.price
+                }
+                , 0
+            )
+          addCymbalsTogether(totalPrice)      
+        },
+        [orders]
+    )
   
         return (
             <>
                 <div>
-                    <h3 className="current">Current Order Includes {`${orders.length}`} Cymbal(s)</h3>
+                    <h3 className="current">Current Order Includes {`${orders.length}`} Cymbal(s) and Costs ${`${orderCost}`}</h3>
 
                     {
                         orders.map(  //we are iterating through all of the orders for the current user and displaying the properties that are on that object below using .notation
