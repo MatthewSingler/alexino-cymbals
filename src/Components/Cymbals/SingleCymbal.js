@@ -77,7 +77,7 @@ export const EachCymbal = () => {
                 </div>
                 </section>
             </div>
-            <button className="return" onClick={() => history.push("/cymbals")}>Check Out More Cymbals</button>
+            <button className="return" onClick={() => history.push("/cymbals")}>More Cymbals</button>
             
         </>
     )

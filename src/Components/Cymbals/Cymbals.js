@@ -31,8 +31,8 @@ export const Cymbal = () => {
                                 <Link className="cymbals__links" to={`/cymbals/${cymbal.id}`}>{cymbal.name}, {cymbal.size}</Link>
                                 </div>
                         )}
-                        )
-                    }
+                    )
+            }
                             </div>
         </>
     )
