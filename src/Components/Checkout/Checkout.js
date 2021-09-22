@@ -9,7 +9,7 @@ export const Checkout = () => {
 
     useEffect(
         () => {
-            fetch("http://localhost8088/completedOrders?_expand=orderId")
+            fetch("http://localhost8088/completedOrders?_expand=order")
                 .then(res => res.json())
                 .then((completedOrdersArray) => {
                     setCompletions(completedOrdersArray)

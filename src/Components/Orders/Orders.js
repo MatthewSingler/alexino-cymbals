@@ -2,10 +2,11 @@
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router"
 import "./Orders.css"
+import { Checkout } from "../Checkout/Checkout"
 
 export const Orders = () => {
     const [orders, setOrders] = useState([])  //setting the initial value of my state of orders
-    const [orderCost, addCymbalsTogether] = useState(0) 
+    const [orderCost, addCymbalsTogether] = useState(0)
     const currentUser = parseInt(localStorage.getItem("alexino_user"))  //had to save the current user to a variable
     
     const history = useHistory()
@@ -14,12 +15,20 @@ export const Orders = () => {
             return fetch(`http://localhost:8088/orders?_expand=cymbal&userId=${currentUser}`)
                 .then(response => response.json())
                 .then((ordersArray) => {
-                    return setOrders(ordersArray)  //when this runs we are storing the orders that the user has made in orders, and it is being stored there by invoking the setOrders function.
+                    for (const order of orders) {
+                        if (completedOrders.orderId !== order.id) {
+                            return setOrders(ordersArray)
+                        }
+
+                    }
+
+                      //when this runs we are storing the orders that the user has made in orders, and it is being stored there by invoking the setOrders function.
                 })
-        }
+    }
 
         useEffect(  //our useEffect hook is calling the allUserOrders function which contains the orders the user has made. The state has changed?
             () => {
+                
                 allUserOrders()
             },
             []
@@ -44,7 +53,8 @@ export const Orders = () => {
         },
             [orders]  //calling orders again
         
-    )
+        )
+    
   
         return (
             <>
@@ -56,7 +66,7 @@ export const Orders = () => {
                             (orderObj) => {
                                 return (
                                     <>
-                                        <div className="current__cart"key={`order--${orderObj.id}`}>{orderObj.cymbal?.name}, {orderObj.cymbal?.size}, ${orderObj.cymbal.price}</div>
+                                        <div className="current__cart" key={`order--${orderObj.id}`}>{orderObj.cymbal?.name}, {orderObj.cymbal?.size}, ${orderObj.cymbal.price}</div>
                                         <div>
                                             <button className="delete__button" onClick={() => deleteCymbal(orderObj.id)}>Delete</button>
                                         </div>
