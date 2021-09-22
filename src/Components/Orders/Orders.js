@@ -42,7 +42,8 @@ export const Orders = () => {
             )
           addCymbalsTogether(totalPrice)  //calling addCymbalsTogether with totalprice as an arguement. totalprice is storing the orders object
         },
-        [orders]  //calling orders again
+            [orders]  //calling orders again
+        
     )
   
         return (
