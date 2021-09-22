@@ -5,11 +5,31 @@ import "../Cymbals/Cymbals.css"
 import "./Checkout.css"
 
 export const Checkout = () => {
+    const [completedOrders, setCompletions] = useState([])
+
+    useEffect(
+        () => {
+            fetch("http://localhost8088/completedOrders?_expand=orderId")
+                .then(res => res.json())
+                .then((completedOrdersArray) => {
+                    setCompletions(completedOrdersArray)
+                })
+        },
+        []
+    )
+    
 
     const history = useHistory()
 
     return (
         <>
+            {
+                completedOrders.map(
+                    (data) => {
+                        return <div key={`completed--${completedOrders.id}`}>{data.completedOrderId}</div>
+                    }
+                )
+            }
             <section>
                 <div>
                     <h3 className="checkout__message">Thank you for your order</h3>
