@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router"
 import "./Orders.css"
+import logo from "../images/logo.jpg";
 
 export const Orders = () => {
     const [orders, setOrders] = useState([])  //setting the initial value of my state of orders
@@ -48,6 +49,9 @@ export const Orders = () => {
   
         return (
             <>
+                <div class="image">
+                    <img className="logo" src={logo} alt="alexino logo" />
+                </div>
                 <div>
                     <h3 className="current">Current Order Includes {`${orders.length}`} Cymbal(s) and Costs ${`${orderCost}`}</h3>
 
