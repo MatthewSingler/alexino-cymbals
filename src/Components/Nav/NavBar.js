@@ -12,7 +12,7 @@ export const NavBar = (props) => {  //why props?
                     <Link className="navbar__link" to="/orders">Order Cart</Link>
                 </li>
                 <li className="navbar__item active">
-                    <Link className="navbar__link" to="#"
+                    <Link className="navbar__link" to="#" //logout link only needs the #, not a to=""
                         onClick={
                             () => {
                                 localStorage.removeItem("alexino_user")
