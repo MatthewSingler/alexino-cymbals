@@ -4,33 +4,33 @@ import { useHistory } from "react-router"
 import "./Cymbals.css"
 
 export const EachCymbal = () => {
-    const [ cymbal, selectCymbal ] = useState({})
+    const [ cymbal, selectCymbal ] = useState({})  //initial state of each cymbal is an emty object.
     const { cymbalId } = useParams()
     const history = useHistory()
 
     useEffect(
         () => {
-            return fetch(`http://localhost:8088/cymbals/${cymbalId}?_expand=cymbalType`)
+            return fetch(`http://localhost:8088/cymbals/${cymbalId}?_expand=cymbalType`)  //This useEffect is returning data from API and storing it in cymbalData parameter. 
                 .then(response => response.json())
                 .then((cymbalData) => {
-                    selectCymbal(cymbalData)
+                    selectCymbal(cymbalData)  //Using the cymbalData we got from API and updating state of each cymbal with selectCymbal function.
                 })
         },
-        [cymbalId]
+        [cymbalId]  //By calling cymbalId we are targeting the individual cymbal the user clicks on.
     )
-    const purchaseCymbal = () => {
-        const purchasedObj = {
+    const purchaseCymbal = () => {  //this function responsible for posting the cymbal data to our API that is gathered when the user clicks on the purchase button.
+        const purchasedObj = {  //the purchaseObj includes these two properties
             cymbalId: parseInt(cymbalId),
             userId: parseInt(localStorage.getItem("alexino_user"))
         }
-        const fetchOptions = {
+        const fetchOptions = {  //specifying the options we need when we post. 
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(purchasedObj)
+            body: JSON.stringify(purchasedObj)  //can only send strings accross http.
         }
-        return fetch("http://localhost:8088/orders", fetchOptions)
+        return fetch("http://localhost:8088/orders", fetchOptions)  //fetch call takes two arguements, the address and the options function.
             .then(() => {
-                history.push("/orders")
+                history.push("/orders") //send user back to orders page
             })
     }
     
