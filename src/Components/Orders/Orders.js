@@ -71,7 +71,17 @@ export const Orders = () => {
                     
                 </div>
                 <button className="return" onClick={() => history.push("/cymbals")}>Keep Shopping</button>
-                <button className="checkout" onClick={() => history.push("/checkout")}>Checkout</button>
+                <button className="checkout" onClick={
+                                const pushOrder= (id) => {
+        
+                                return fetch(`http://localhost:8088/orders/${id}`{
+                                method: "PUT",
+                                body: json.stringify({
+
+                                    })
+                                    })
+                                }
+                    () => history.push("/checkout")}>Checkout</button>
             </>
         )  //our onClick function above is calling the deleteCymbal fucntion and pasing the current orderObj.id as the arguement. This is what gets passed to the deleteCymbal as a parameter.
     }
