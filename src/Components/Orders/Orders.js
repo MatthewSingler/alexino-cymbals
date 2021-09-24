@@ -49,39 +49,45 @@ export const Orders = () => {
     )
 
     useEffect(
-        () => {
+        async () => {
             const completedOrders = orders.map(
                 (orderCompleteData) => {
-                    if (completed ? yes : no)
-                }
-        }
-    )
+                    return orderCompleteData.completed
+                }),
+            []
+            const fetchOptions = {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(completedOrders)
+            }
+            await fetch("http://localhost8088/completedOrders?_expand=order", fetchOptions)
+            history.push("/checkout")
+        )
+    
   
-    return (
-        <>
-            <div>
-                <h3 className="current">Current Order Includes {`${orders.length}`} Cymbal(s) and Costs ${`${orderCost}`}</h3>
+            return (
+                <>
+                    <div>
+                        <h3 className="current">Current Order Includes {`${orders.length}`} Cymbal(s) and Costs ${`${orderCost}`}</h3>
 
-                {
-                    orders.map(  //we are iterating through all of the orders for the current user and displaying the properties that are on that object below using .notation
-                        (orderObj) => {  //everything we get back from our iteration is stored in the orderObj.
-                            return (
-                                <>
-                                    <div className="current__cart" key={`order--${orderObj.id}`}>{orderObj.completed}{orderObj.cymbal?.name}, {orderObj.cymbal?.size}, ${orderObj.cymbal.price}</div>
-                                    <div>
-                                        <button className="delete__button" onClick={() => deleteCymbal(orderObj.id)}>Delete</button>
-                                    </div>
-                                </>
+                        {
+                            orders.map(  //we are iterating through all of the orders for the current user and displaying the properties that are on that object below using .notation
+                                (orderObj) => {  //everything we get back from our iteration is stored in the orderObj.
+                                    return (
+                                        <>
+                                            <div className="current__cart" key={`order--${orderObj.id}`}>{orderObj.completed}{orderObj.cymbal?.name}, {orderObj.cymbal?.size}, ${orderObj.cymbal.price}</div>
+                                            <div>
+                                                <button className="delete__button" onClick={() => deleteCymbal(orderObj.id)}>Delete</button>
+                                            </div>
+                                        </>
+                                    )
+                                }
                             )
                         }
-                    )
-                }
                     
-            </div>
-            <button className="return" onClick={() => history.push("/cymbals")}>Keep Shopping</button>
-            <button className="checkout__btn" onClick={() => Checkout(orders)}>Checkout</button>
-        </>
-    )  //our onClick function above is calling the deleteCymbal fucntion and pasing the current orderObj.id as the arguement. This is what gets passed to the deleteCymbal as a parameter.
-    
-}
+                    </div>
+                    <button className="return" onClick={() => history.push("/cymbals")}>Keep Shopping</button>
+                    <button className="checkout__btn">Checkout</button>
+                </>
+            )
     
