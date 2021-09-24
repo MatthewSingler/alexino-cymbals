@@ -90,3 +90,15 @@ font-size: 20px;
     border-color: black;
     font-size: 16px;
 }
+.return__login {
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    font-size: 16px;
+}
+.register__btn {
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    font-size: 16px;
+}
