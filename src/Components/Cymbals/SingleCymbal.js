@@ -21,7 +21,8 @@ export const EachCymbal = () => {
     const purchaseCymbal = () => {  //this function responsible for posting the cymbal data to our API that is gathered when the user clicks on the purchase button.
         const purchasedObj = {  //the purchaseObj includes these two properties
             cymbalId: parseInt(cymbalId),
-            userId: parseInt(localStorage.getItem("alexino_user"))
+            userId: parseInt(localStorage.getItem("alexino_user")),
+            completed: false
         }
         const fetchOptions = {  //specifying the options we need when we post. 
             method: "POST",
