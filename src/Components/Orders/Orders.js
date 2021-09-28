@@ -45,7 +45,12 @@ export const Orders = () => {
         },
             [orders]  //calling orders so it can be updated.
         
-    )
+            )
+            const checkout = () => {
+                return fetch(`http://localhost:8088/orders/`, {
+              method: "PUT"
+          })
+      }      
   
         return (
             <>
@@ -60,9 +65,12 @@ export const Orders = () => {
                             (orderObj) => {  //everything we get back from our iteration is stored in the orderObj.
                                 return (
                                     <>
-                                        <div className="current__cart"key={`order--${orderObj.id}`}>{orderObj.cymbal?.name}, {orderObj.cymbal?.size}, ${orderObj.cymbal.price}</div>
+                                        <div className="current__cart" key={`order--${orderObj.id}`}>{orderObj.complete}{orderObj.cymbal?.name}, {orderObj.cymbal?.size}, ${orderObj.cymbal.price}</div>
                                         <div>
                                             <button className="delete__button" onClick={() => deleteCymbal(orderObj.id)}>Delete</button>
+                                        </div>
+                                        <div>
+                                            <button className="checkout" onClick={ orderObj.complete ? true : { checkout }(history.push("/checkout"))}>Checkout</button>
                                         </div>
                                     </>
                                 )
@@ -72,7 +80,7 @@ export const Orders = () => {
                     
                 </div>
                 <button className="return" onClick={() => history.push("/cymbals")}>Keep Shopping</button>
-                <button className="checkout" onClick={() => history.push("/checkout")}>Checkout</button>
+                
             </>
         )  //our onClick function above is calling the deleteCymbal fucntion and pasing the current orderObj.id as the arguement. This is what gets passed to the deleteCymbal as a parameter.
     }
