@@ -8,7 +8,7 @@ export const Orders = () => {
     const [orders, setOrders] = useState([])  //setting the initial value of my state of orders
     const [orderCost, addCymbalsTogether] = useState(0) //initial value of my orderCost is zero
     const currentUser = parseInt(localStorage.getItem("alexino_user"))  //had to save the current user to a variable
-    
+    const [theCompleteOrders, setCompleted] = useState([])
     const history = useHistory()
         
     const allUserOrders = () => {  //this function is fetching all the orders for the specific user, whcih we got by invoking our currentUser variable.
@@ -53,8 +53,10 @@ export const Orders = () => {
             const completedOrders = orders.map(
                 (orderCompleteData) => {
                     return orderCompleteData.completed
-                }),
-            []
+                },
+                setCompleted(completedOrders)
+                [theCompleteOrders]
+            )
             const fetchOptions = {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -62,7 +64,7 @@ export const Orders = () => {
             }
             await fetch("http://localhost8088/completedOrders?_expand=order", fetchOptions)
             history.push("/checkout")
-        )
+        
     
   
             return (
@@ -90,4 +92,5 @@ export const Orders = () => {
                     <button className="checkout__btn">Checkout</button>
                 </>
             )
-    
+        })
+}
