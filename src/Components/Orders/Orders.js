@@ -8,7 +8,7 @@ export const Orders = () => {
     const [orders, setOrders] = useState([])  //setting the initial value of my state of orders
     const [orderCost, addCymbalsTogether] = useState(0) //initial value of my orderCost is zero
     const currentUser = parseInt(localStorage.getItem("alexino_user"))  //had to save the current user to a variable
-    const [theCompleteOrders, setCompleted] = useState([])
+    const [theCompleteOrders, setCompleted] = useState([])  //I don't think I need to set another state variable. I just need to check to see if the property of complete is true or false on my orders variable.
     const history = useHistory()
         
     const allUserOrders = () => {  //this function is fetching all the orders for the specific user, whcih we got by invoking our currentUser variable.
@@ -62,7 +62,7 @@ export const Orders = () => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(completedOrders)
             }
-            await fetch("http://localhost8088/completedOrders?_expand=order", fetchOptions)
+            await fetch("http://localhost8088/orders", fetchOptions)
             history.push("/checkout")
         
     
