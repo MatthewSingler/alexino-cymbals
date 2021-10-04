@@ -22,7 +22,6 @@ export const Cymbal = () => {
         <>
             <div className="cymbals--display">
 
-            
             {
                 cymbals.map(  //iterating through all the cymbals and storing each object returned in the cymbal parameter.
                     (cymbal) => {

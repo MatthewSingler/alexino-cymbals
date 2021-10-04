@@ -49,9 +49,7 @@ export const Orders = () => {
   
         return (
             <>
-                {/*<div class="image">
-                    <img className="logo" src={logo} alt="alexino logo" />
-        </div>*/}
+                
                 <div>
                     <h3 className="current">Current Order Includes {`${orders.length}`} Cymbal(s) and Costs ${`${orderCost}`}</h3>
 
