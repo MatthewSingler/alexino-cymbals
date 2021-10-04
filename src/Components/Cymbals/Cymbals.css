@@ -9,6 +9,7 @@
     gap: 15px;
     font-size: 23px;
     color: #ced4da;
+    margin-left: 10%;
 }
 
 .cymbals__links {
@@ -58,6 +59,7 @@ color: #ced4da;
     width: auto;
     height: auto;
     margin-right: 15%;
+    margin-left: 10%;
 }
 .cymbal__specs {
     font-size: 21px;
