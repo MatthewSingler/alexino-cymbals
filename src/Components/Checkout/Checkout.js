@@ -7,7 +7,7 @@ import "./Checkout.css"
 export const Checkout = () => {
     const [completedOrders, setCompletions] = useState([])
 
-    useEffect(
+    /*useEffect(
         () => {
             fetch("http://localhost8088/completedOrders?_expand=orderId")
                 .then(res => res.json())
@@ -16,7 +16,7 @@ export const Checkout = () => {
                 })
         },
         []
-    )
+    )*/
     
 
     const history = useHistory()
